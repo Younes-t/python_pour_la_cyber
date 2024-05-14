@@ -17,7 +17,7 @@ def send_email(email_expediteur, mot_de_passe, email_destinataire,serveur_smtp="
     message = MIMEMultipart()
     message['From'] = email_expediteur
     message['To'] = email_destinataire
-    message['Subject'] = "DOUCEUR"
+    message['Subject'] = sujet
 
     # Ajout du corps de l'email
     message.attach(MIMEText(corps, 'plain'))
@@ -50,4 +50,11 @@ email_expediteur = 'younes3046@gmail.com'
 mot_de_passe = 'jpyc irod qrfp gusc'
 email_destinataire = 'younes.talbi@oteria.fr'
 
-send_email(email_expediteur,mot_de_passe,email_destinataire)
+
+def automaticSendingMailPool(pool):
+  for mail_target in pool :
+    send_email('younes3046@gmail.com', 'jpyc irod qrfp gusc', mail_target)
+
+#send_email(email_expediteur,mot_de_passe,email_destinataire)
+
+automaticSendingMailPool(['younes.talbi@ovrsea.com','younes.talbi@oteria.fr','ymanbg@gmail.com'])
